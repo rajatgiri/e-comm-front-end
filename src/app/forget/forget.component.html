@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-6">
+        <p class="alert alert-info">Please Enter your email</p>
+        <form class="form" #myForm='ngForm' (ngSubmit)="forgetPassword(myForm.value)">
+            <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="email" #email='ngModel' name="email" class="form-control" ngModel [class.is-invalid]='email.invalid && email.touched'
+                    required email>
+                <small class="text-danger" [class.d-none]="email.valid || email.untouched">Please Enter a valid
+                    email</small>
+            </div>
+            <p class="alert alert-danger" *ngIf='message'>{{message}}</p>
+            <button class="btn btn-primary">Send OTP</button>
+        </form>
+    </div>
+    <div class="col-md-6" *ngIf='message === "OTP sent !!"'>
+
+        <form class="form" #enterOtpForm='ngForm' (ngSubmit)="onOtpEnter(enterOtpForm.value)">
+            <div class="form-group">
+                <label class="alert alert-primary" for="otp">Please Check Your Email and Enter the OTP!!</label>
+                <hr>
+                <input name="otp" id="otp" class="form-control" type="text" ngModel placeholder="Enter OTP">
+            </div>
+            <button class="btn btn-info" type="submit">Submit</button>
+            <hr>
+            <p class="alert alert-primary" *ngIf='otpRes'>{{otpRes | titlecase}}</p>
+        </form>
+
+    </div>
+</div>

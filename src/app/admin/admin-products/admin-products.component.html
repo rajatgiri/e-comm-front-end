@@ -1,0 +1,19 @@
+<div routerLink='/admin/product/new' class="btn btn-primary">New Product</div>
+
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let product of productList'>
+            <td>{{product.name}}</td>
+            <td>{{product.id}}</td>
+            <td><a routerLink=''>Edit</a></td>
+        </tr>
+    </tbody>
+</table>

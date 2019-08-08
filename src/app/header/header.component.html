@@ -1,0 +1,116 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color : #30336B">
+    <a class="navbar-brand ml-4" routerLink='/'>E-Store</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/products">Shop Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/shopping-cart">Cart</a>
+            </li>
+
+            <li ngbDropdown class="nav-item dropdown">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style="cursor: pointer" *ngIf='authSer.loggedIn()'>
+                    {{userName | uppercase}}
+                </a>
+                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a ngbDropdownItem class="dropdown-item" routerLink='/my-profile'>My Profile</a>
+                    <a ngbDropdownItem class="dropdown-item" routerLink='/my-orders'>My Order</a>
+                    <a ngbDropdownItem class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
+                    <a ngbDropdownItem class="dropdown-item" routerLink="/admin/products">Manage Products</a>
+                    <div class="dropdown-divider"></div>
+                    <a ngbDropdownItem class="dropdown-item" *ngIf="authSer.loggedIn()" style="cursor: pointer" (click)='authSer.logout()'>Log Out</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink='/register' *ngIf="!authSer.loggedIn()" >Register </a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" routerLink='/login' *ngIf="!authSer.loggedIn()" >Login </a>
+            </li>
+            
+        </ul>
+    </div>
+</nav> -->
+
+<header>
+    <!-- Top Navigation -->
+    <div id="top">
+        <div class="container">
+            <div class="row top-header">
+                <div class="col-lg-6 p-2 text-center text-lg-left">
+                    <a href="" class="btn btn-sm btn-success mr-3">OFFER OF THE DAY</a><a href="">Get Flat 15% off</a>
+                </div>
+                <div class="col-lg-6 text-lg-right text-center p-2">
+                    <ul class="menu list-inline mb-0">
+                        <li class="list-inline-item"><a href="">Login</a> |</li>
+                        <li class="list-inline-item"><a href="">Register</a> |</li>
+                        <li class="list-inline-item"><a href="">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main NavBar -->
+    <nav class="navbar navbar-expand-lg p-0">
+        <div class="container">
+            <a href="" class="navbar-brand"><img src="../../assets/images/logo.png" alt="E-Store Logo" width="140px"
+                    height="70px"></a>
+            <div>
+                <button type="button" data-toggle="collapse" data-target="#navigation" class="btn btn-outline-success navbar-toggler"><span
+                        class="sr-only">Toggle navigation</span><i class="fas fa-hamburger"></i>
+                </button>
+
+                <button type="button" data-toggle="collapse" data-target="#search" class="btn btn-outline-success navbar-toggler"><span
+                        class="sr-only">Toggle search</span><i class="fas fa-search"></i>
+                </button>
+
+                <a href="" class="btn btn-outline-success navbar-toggler"><i class="fas fa-cart-plus"></i>
+                </a>
+            </div>
+            <div id="navigation" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown"
+                            data-delay="200" class="dropdown-toggle nav-link">Categories<b class="caret"></b></a>
+                        <ul class="dropdown-menu megamenu">
+                            <li class="nav-item"><a href="" class="nav-link">Mobile Phones</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">Televisions</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">Laptops</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">Accessories</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.nav-collapse-->
+            <div class="navbar-buttons d-flex justify-content-end">
+                <div id="search-not-mobile" class="navbar-collapse collapse"></div><a data-toggle="collapse" href="#search"
+                    class="btn navbar-btn btn-primary d-none d-lg-inline-block"><span class="sr-only">Toggle search</span><i
+                        class="fa fa-search"></i></a>
+                <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a href="#"
+                        class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span> 3 items in cart</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="search" class="collapse">
+        <div class="container">
+            <form role="search" class="ml-auto">
+                <div class="input-group">
+                    <input type="text" placeholder="Search" class="form-control">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>

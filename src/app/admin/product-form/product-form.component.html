@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-6 p-3">
+        <form #myForm='ngForm' (ngSubmit)="save(myForm.value)">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input #title='ngModel' [class.is-invalid]='title.touched && title.invalid' ngModel name="title" type="text"
+                    class="form-control" id="title" required>
+                <div *ngIf='title.touched && title.invalid'>
+                    <small class="text-danger">Please Enter Title</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input #price='ngModel' ngModel name="price" type="text" class="form-control" [class.is-invalid]='price.touched && price.invalid'
+                        aria-label="Amount (to the nearest dollar)" required>
+                </div>
+                <div *ngIf='price.touched && price.invalid'>
+                    <small class="text-danger">Please Enter Price</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select #category='ngModel' ngModel name="category" id="category" class="form-control"
+                    [class.is-invalid]='category.touched && category.invalid' required>
+                    <option value=""></option>
+                    <option [value]="c.name" *ngFor='let c of categories'>{{c.name}}</option>
+                </select>
+                <div *ngIf='category.touched && category.invalid'>
+                    <small class="text-danger">Please Enter Category</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="image-url">Image URL</label>
+                <input #image='ngModel' ngModel name="imageUrl" type="text" class="form-control" id="image-url"
+                    [class.is-invalid]='image.touched && image.invalid' required>
+                <div *ngIf='image.touched && image.invalid'>
+                    <small class="text-danger">Please Enter Image URL</small>
+                </div>
+            </div>
+
+            <button class="btn btn-primary mt-3">Save</button>
+        </form>
+    </div>
+    <div class="col-md-6 mt-4" >
+        <div class="card" style="width: 18rem; margin: 0 auto;">
+            <img [src]="image.value" class="card-img-top img-fluid" alt="" style="max-height : 300px">
+            <div class="card-body">
+                <h5 class="card-title">{{title.value}}</h5>
+                <p class="card-text">{{price.value | currency}}</p>
+               
+            </div>
+        </div>
+    </div>
+</div>

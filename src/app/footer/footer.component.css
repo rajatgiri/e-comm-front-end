@@ -1,0 +1,20 @@
+.jumbotron a{
+    color: #999;
+    text-decoration: none;
+}
+
+.jumbotron a:hover{
+    color: #348e7b;
+    text-decoration: underline;
+}
+.copyright{
+   background-color : #333;
+   color: #fff;
+}
+
+.copyright a {
+    color: #348e7b;
+}
+#icons{
+    font-size: 32px;
+}
