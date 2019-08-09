@@ -1,0 +1,47 @@
+.breadcrumb {
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+  }
+  .breadcrumb a {
+      color: #4fbfa8;
+      text-decoration: none;
+  }
+  .breadcrumb a:hover {
+      color: #4fbfa8;
+      text-decoration: underline;
+  }
+  .card-body a{
+      color: #4fbfa8;
+      text-transform: uppercase;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: bold;
+      border-radius: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+  }
+.category-menu li:hover {
+    background-color: #eeeeee;
+}
+.box{
+    color: #fff;
+    background-color: #4fbfa8;
+    margin: 0 0 30px 0;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+.blockquote-footer{
+    color : #fff;
+}

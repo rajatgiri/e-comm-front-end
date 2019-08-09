@@ -5,9 +5,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductService {
-  public _newProductUrl = 'https://jsonplaceholder.typicode.com/posts';
-  public _getProductsUrl = "https://jsonplaceholder.typicode.com/users";
-  public _allProductsUrl = '';
+  public _newProductUrl = "";
+  public _getProductsUrl = "/api/cat/getCatDetailsByGroup?catgroupId=4";
+  public _allProductsUrl = "";
 
   constructor(private http : HttpClient) { }
 

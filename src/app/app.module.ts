@@ -28,6 +28,7 @@ import { ForgetComponent } from './forget/forget.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProductService } from './services/product/product.service';
 // import { TokenInterceptorService } from './services/token-interceptor/token-interceptor.service';
 
 @NgModule({
@@ -58,7 +59,7 @@ import { FooterComponent } from './footer/footer.component';
     NgbModule,
     FormsModule,
   ],
-  providers: [AuthService, UserService, AuthGuard, CategoryService ]
+  providers: [AuthService, UserService, AuthGuard, CategoryService, ProductService ]
   //   {
   //   // provide: HTTP_INTERCEPTORS,
   //   // useClass: TokenInterceptorService,
