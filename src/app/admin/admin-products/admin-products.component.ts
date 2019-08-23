@@ -10,7 +10,7 @@ export class AdminProductsComponent implements OnInit {
   public productList;
 
   constructor(private productSer : ProductService) { 
-    this.productSer.getProducts().subscribe(res => {
+    this.productSer.getAdminProducts().subscribe(res => {
       this.productList = res;
     })
   }

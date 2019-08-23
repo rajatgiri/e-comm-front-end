@@ -18,3 +18,10 @@
 #icons{
     font-size: 32px;
 }
+.btn-danger{
+    background-color: #E71C23;
+}
+.btn-danger:hover{
+    background-color: #AE1438;
+    border-color: #dc3545;
+}

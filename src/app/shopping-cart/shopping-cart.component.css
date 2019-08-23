@@ -4,3 +4,15 @@ body {
     background: linear-gradient(to right, #eecda3, #ef629f);
     min-height: 100vh;
   }
+  .cart{
+    font-size: 3rem;
+  }
+  #cart{
+    font-size: 3rem;
+    /* padding: 10px;
+    margin: 10px; */
+  }
+  .btn.btn-primary:disabled{
+    background-color: #4fbfa8;
+    border-color: #4fbfa8;
+}

@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import * as CryptoJS from 'crypto-js';
+
 
 @Component({
   selector: 'app-register',
@@ -21,13 +23,15 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterUser(form) {
-    console.log(form.value);
-    this.authSer.registerUser(form.value)
+    console.log(form);
+    let formDetail = {'firstName': form.firstName, 'lastName': form.lastName, 'email': form.email, 'password' : this.encryptPassword(form.password)};
+    
+    this.authSer.registerUser(formDetail)
       .subscribe(res => {
         console.log(res);
         this.serverRes = res;
         this.displayRes = this.serverRes.reason;
-        form.reset();
+        // form.value.reset();
         if(this.serverRes.reason === "register successfully, please login to continue !!"){
           alert("Registered Successfully !!!");
           this.route.navigate(['/login']);
@@ -58,4 +62,16 @@ export class RegisterComponent implements OnInit {
 
     // }
   }
+  encryptPassword(password): string {
+    let key = CryptoJS.enc.Utf8.parse('7061737323313233');
+    let iv = CryptoJS.enc.Utf8.parse('7061737323313233');
+    let encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(password), key,
+        {
+            keySize: 128 / 8,
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        });
+    return encrypted.toString();
+}
 }

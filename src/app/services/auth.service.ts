@@ -1,5 +1,5 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Injectable, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -32,7 +32,7 @@ export class AuthService {
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('name');
-    this.route.navigate(['/products']);
+    // this.route.navigate(['/products/']);
   }
 
   resetPassword(userEmail){

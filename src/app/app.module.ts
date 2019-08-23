@@ -29,7 +29,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductService } from './services/product/product.service';
-// import { TokenInterceptorService } from './services/token-interceptor/token-interceptor.service';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductStartComponent } from './product-start/product-start.component';
+import { ProductsByCategoryComponent } from './products-by-category/products-by-category.component';
+import { TokenInterceptorService } from './services/token-interceptor/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { ProductService } from './services/product/product.service';
     ForgetComponent,
     ResetPasswordComponent,
     PageNotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    ProductDetailComponent,
+    ProductStartComponent,
+    ProductsByCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -59,12 +65,12 @@ import { ProductService } from './services/product/product.service';
     NgbModule,
     FormsModule,
   ],
-  providers: [AuthService, UserService, AuthGuard, CategoryService, ProductService ]
-  //   {
-  //   // provide: HTTP_INTERCEPTORS,
-  //   // useClass: TokenInterceptorService,
-  //   // multi: true
-  // }]
+  providers: [AuthService, UserService, AuthGuard, CategoryService, ProductService,
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }]
   ,
   bootstrap: [AppComponent]
 })

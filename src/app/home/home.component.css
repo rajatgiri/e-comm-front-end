@@ -34,4 +34,91 @@
     min-width: 100%;
     height: 32rem;
   }
-  
+ .box{
+  background: #fff;
+  margin: 0 0 30px;
+  border: solid 1px #e6e6e6;
+  padding: 20px;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+ } 
+ .icon{
+  position: absolute;
+  font-size: 120px;
+  width: 100%;
+  text-align: center;
+  top: -20px;
+  left: 0;
+  height: 100%;
+  float: left;
+  color: #eee;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  z-index: 1;
+ }
+
+ /*
+*
+* ======================================================================
+* ADVANTAGES
+* ======================================================================
+*
+*/
+#advantages {
+  text-align: center;
+}
+
+#advantages .box .icon {
+  position: absolute;
+  font-size: 120px;
+  width: 100%;
+  text-align: center;
+  top: -20px;
+  left: 0;
+  height: 100%;
+  float: left;
+  color: #eee;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+#advantages .box h3 {
+  position: relative;
+  margin: 0 0 10px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  z-index: 2;
+}
+#advantages .box h3 a{
+  color: #3eaa94;
+}
+
+#advantages .box h3 a:hover {
+  color: #4fbfa8;
+  text-decoration: none;
+}
+
+#advantages .box p {
+  position: relative;
+  color: #555;
+  z-index: 2;
+}
+.lead a {
+  color: #4fbfa8;
+  text-decoration: none;
+}
+#content #blog-homepage .post {
+  margin-bottom: 30px;
+}
+ .post {
+   font-weight: 300;
+  margin-bottom: 15px;
+  background: #fff;
+  margin: 0 0 30px;
+  border: solid 1px #e6e6e6;
+  padding: 20px;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}

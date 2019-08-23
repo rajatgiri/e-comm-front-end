@@ -123,14 +123,14 @@
         </div>
         <div class="card-body">
           <ul class="list-unstyled flex-column category-menu">
-            <li><a href="" class="nav-link">Mobile Phones</a></li>
-            <li><a href="" class="nav-link">Televisions</a></li>
-            <li><a href="" class="nav-link">Laptops</a></li>
-            <li><a href="" class="nav-link">Accessories</a></li>
+            <li><a (click)='onClick(4)' style="cursor:pointer" class="nav-link">Mobile Phones</a></li>
+            <li><a (click)='onClick(5)' style="cursor:pointer" class="nav-link">Televisions</a></li>
+            <li><a (click)='onClick(6)' style="cursor:pointer" class="nav-link">Laptops</a></li>
+            <li><a (click)='onClick(3)' style="cursor:pointer" class="nav-link">Accessories</a></li>
           </ul>
         </div>
       </div>
-      <div class="banner mt-3">
+      <div style="cursor:pointer" class="banner mt-3">
         <a href=""><img class="img-fluid" src="https://cdn.pixabay.com/photo/2016/04/21/11/48/orange-1343157_960_720.png"
             alt=""></a>
       </div>
@@ -144,24 +144,21 @@
             </cite></footer>
         </blockquote>
       </div>
-      <div class="row" *ngFor = 'let p of products'>
-        <div class="col-md-6 col-lg-4">
+      <div class="row" >
+        <div class="col-md-6 col-lg-4" *ngFor = 'let product of newProduct' >
           <div class="product">
-            <div>
-              <a href=""><img [src]="p.data.fullimage" alt="" class="img-fluid"></a>
+            <div class="image-size">
+              <a [routerLink]="['/products', product.catentryId]"><img [src]="product.fullimage" alt="" class="img-fluid product-img p-2"></a>
             </div>
             <div class="text">
-              <h3><a href="">{{p.data.name}}</a></h3>
-              <p class="price text-center"><del>$150</del>{{p.data.price}}</p>
-              <p><a href="" class="btn btn-outline-secondary mr-2">View Details</a> <a href="" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Add to cart</a></p>
+              <h3><a [routerLink]="['/products', product.catentryId]" style="cursor : pointer">{{product.name}}</a></h3>
+              <p class="price text-center">$ {{product.price}}</p>
+              <p class="text-center"><a [routerLink]="['/products', product.catentryId]" class="btn btn-outline-secondary btn-sm">View Details</a> <a style="cursor:pointer; color:#fff" class="btn btn-success btn-sm ml-2" (click)='onAddToCart(product.catentryId)'><i class="fas fa-shopping-cart"></i> Add to cart</a></p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
-        </div>
-        <div class="col-md-6 col-lg-4">
-        </div>
       </div>
+      <p class="loadMore text-center"><a href="#" class="btn btn-success btn-lg"><i class="fa fa-chevron-down"></i> Load more</a></p>
     </div>
   </div>
 </div>
