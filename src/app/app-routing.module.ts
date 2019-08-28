@@ -35,8 +35,7 @@ const routes: Routes = [
     path: 'forget', component: ForgetComponent
   },
   {
-    path: 'reset-password', component: ResetPasswordComponent,
-    canActivate: [AuthGuard]
+    path: 'reset-password', component: ResetPasswordComponent
   },
   { path: 'my-orders', component: MyOrdersComponent },
   {

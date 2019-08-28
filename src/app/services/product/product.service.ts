@@ -62,4 +62,7 @@ export class ProductService {
   search(keyword){
     return this.http.post('/api/cat/search', keyword);
   }
+  searchResult(string){
+    return this.http.post('/api/cat/searchResult', string);
+  }
 }

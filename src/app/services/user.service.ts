@@ -14,11 +14,20 @@ const httpOptions = {
 })
 export class UserService {
     userUrl ='/api/user/userProfile';
+    updateUserUrl = '/api/user/updateUser';
+    updateUserAddressUrl = '/api/user/saveOrUpdateAddress';
 
   constructor(private http : HttpClient) { }
 //to send data(token) to server using Header use httpOptions
   getUser(){
     return this.http.get(this.userUrl, httpOptions);
+  }
+  updateUser(userData){
+    return this.http.post(this.updateUserUrl, userData);
+  }
+  updateUserAddress(userData){
+    return this.http.post(this.updateUserAddressUrl, userData);
+
   }
   
 }

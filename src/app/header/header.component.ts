@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { ProductService } from '../services/product/product.service';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   values;
   searchText;
   productData;
-  constructor(private authSer : AuthService, private prodSer : ProductService) { }
+  constructor(private authSer: AuthService, private prodSer: ProductService) { }
 
 
   ngOnInit() {
@@ -38,18 +38,36 @@ export class HeaderComponent implements OnInit {
   // }
 
 
-  
+
 
   onKey(event: any) { // without type info
     this.values = event.target.value;
     console.log(this.values);
-    let keyword = {'searchItem': this.values};
+    let keyword = { 'searchItem': this.values };
     this.prodSer.search(keyword).pipe(map(res => {
       this.products = res;
       return this.products.data;
-    })).subscribe(res =>{
+    })).subscribe(res => {
       console.log(res);
-this.productData = res;
+      if (res == null) {
+        this.productData = res;
+      } else {
+        this.productData = res.slice(0, 5);
+      }
+    })
+  }
+  hideTable() {
+    document.getElementById("input").style.display = 'none';
+  }
+  showTable() {
+    document.getElementById("input").style.display = 'block';
+  }
+  onClick() {
+    let string = {'searchItem' : this.values};
+    console.log(string);
+
+    this.prodSer.searchResult(string).subscribe(res =>{
+      console.log(res);
     })
   }
 }

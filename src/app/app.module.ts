@@ -33,6 +33,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductStartComponent } from './product-start/product-start.component';
 import { ProductsByCategoryComponent } from './products-by-category/products-by-category.component';
 import { TokenInterceptorService } from './services/token-interceptor/token-interceptor.service';
+import { SearchResultComponent } from './header/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { TokenInterceptorService } from './services/token-interceptor/token-inte
     FooterComponent,
     ProductDetailComponent,
     ProductStartComponent,
-    ProductsByCategoryComponent
+    ProductsByCategoryComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

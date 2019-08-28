@@ -16,6 +16,7 @@ export class ProductsComponent implements OnInit {
   constructor(private prodSer : ProductService, private router : Router, private route : ActivatedRoute) { }
 
   ngOnInit() {
+    this.onClick(4);
     // this.route.params.subscribe(params =>{
     //   this.id = params['id'];
     //   this.onClick(this.id);

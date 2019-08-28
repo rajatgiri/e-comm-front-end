@@ -108,27 +108,27 @@
         </div>
     </nav>
     <!-- Search Input Field -->
-    <div id="search" class="collapse">
+    <div id="search" class="collapse" style="position : relative;">
         <div class="container">
             <form role="search" class="ml-auto">
                 <div class="input-group">
-                    <input type="text" name="search" ngModel autocomplete="off" placeholder="Search" class="form-control" (keyup)="onKey($event)">
+                    <input type="text" name="search" ngModel autocomplete="off" placeholder="Search" class="form-control"
+                        (keyup)="onKey($event)" (blur)='hideTable()' (focus)='showTable()'>
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        <button type="button" class="btn btn-primary" (click)='onClick()'><i class="fa fa-search"></i></button>
                     </div>
-                    <table class="table table-striped">
-                        <thead>
+                    <table id="input" class="table table-striped rounded" style="position : absolute ; top : 38px; z-index: 10;">
+                        <!-- <thead>
                         <tr>
                           <th>Name</th>
                         </tr>
-                        </thead>
-                        <tbody>
-                        <tr *ngFor="let data of productData">
-                          <td><a href="">{{data}}</a></td>
-                        </tr>
+                        </thead> -->
+                        <tbody style="display : block;">
+                            <tr *ngFor="let data of productData" style="display : block;">
+                                <td class="text-left" style="display : block;"><a href="">{{data}}</a></td>
+                            </tr>
                         </tbody>
-                      </table>
-                      
+                    </table>
                 </div>
             </form>
         </div>

@@ -12,6 +12,7 @@ export class ForgetComponent implements OnInit {
   message;
   resMessage;
   otpRes;
+  emailId;
 
   constructor(private authSer: AuthService, private route : Router) { }
 
@@ -19,7 +20,9 @@ export class ForgetComponent implements OnInit {
   }
 
   forgetPassword(value) {
-    console.log(value);
+    console.log(value.email);
+    this.emailId = value.email;
+    localStorage.setItem('email' , this.emailId);
     this.authSer.resetPassword(value).subscribe(res => {
       this.serverRes = res;
       console.log(res);
@@ -36,13 +39,15 @@ export class ForgetComponent implements OnInit {
   }
 
   onOtpEnter(otp){
+    otp.email = this.emailId;
+    // let newOtp = {'email' : this.emailId, otp}
     console.log(otp);
     this.authSer.sendOtp(otp).subscribe(res =>{
       console.log(res);
       this.resMessage = res;
-      this.otpRes = this.resMessage.reason;
+      this.otpRes = this.resMessage.success;
       console.log(this.otpRes);
-      if(this.otpRes === "otp matched !!"){
+      if(this.otpRes){
         this.route.navigate(['/reset-password']);
       }
     })

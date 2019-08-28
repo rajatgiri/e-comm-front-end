@@ -34,6 +34,9 @@ export class ResetPasswordComponent implements OnInit {
 
   submitPassword(value){
     console.log(value);
+    let newValue = localStorage.getItem('email');
+    value.email = newValue;
+    console.log(value);
     this.authSer.newPassword(value).subscribe(res =>{
       console.log(res);
       this.resMessage = res;
