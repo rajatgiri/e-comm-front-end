@@ -102,7 +102,7 @@
 
                 </div>
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary m-3"><i class="fa fa-save"></i> Save changes</button>
+                    <button type="submit" [disabled]='inactive' class="btn btn-primary m-3"><i class="fa fa-save"></i> Save changes</button>
                   </div>
               </div>
             </form>
@@ -110,63 +110,72 @@
             <!-- address part -->
 
             <h3 class="mt-5">Change Address</h3>
-            <div class="text-right">
-                <button type="button" class="btn btn-primary" (click)="onEditAddress()"><i class="far fa-edit"></i>
-                  {{editAddressButtonName}}</button>
-              </div>
-            <form *ngIf='userData' #addressForm='ngForm' (ngSubmit)='onAddressSubmit(addressForm.value)'>
-              <!-- /.row-->
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="street">Address 1</label>
-                    <input name="address1" id="street" type="text" class="form-control" [disabled]='inactiveAddress'
-                      [(ngModel)]='userData.address[0].address1'>
+            
+            <div *ngIf='userDataAddress'>
+              <form *ngIf='userDataAddress' #addressForm='ngForm' (ngSubmit)='onAddressSubmit(addressForm.value)'>
+                <!-- /.row-->
+                <div class="text-right">
+                  <button type="button" class="btn btn-primary" (click)="onEditAddress()"><i class="far fa-edit"></i>
+                    {{editAddressButtonName}}</button>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="street">Address 1</label>
+                      <input name="address1" id="street" type="text" class="form-control" [disabled]='inactiveAddress'
+                        [(ngModel)]='userData.address[0].address1'>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="company">Address 2</label>
+                      <input name="address2" id="company" type="text" class="form-control" [disabled]='inactiveAddress'
+                        [(ngModel)]='userData.address[0].address2'>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                    <div class="form-group">
+                      <label for="city">City</label>
+                      <input name="city" id="city" type="text" class="form-control" [disabled]='inactiveAddress' [(ngModel)]='userData.address[0].city'>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                    <div class="form-group">
+                      <label for="zip">ZIP</label>
+                      <input name="zipcode" id="zip" type="text" class="form-control" [disabled]='inactiveAddress' [(ngModel)]='userData.address[0].zipcode'>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                    <div class="form-group">
+                      <label for="state">State</label>
+                      <input name="state" id="state" class="form-control" [disabled]='inactiveAddress' [(ngModel)]='userData.address[0].state'>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                    <div class="form-group">
+                      <label for="country">Country</label>
+                      <input name="country" id="country" class="form-control" [disabled]='inactiveAddress' [(ngModel)]='userData.address[0].country'>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="type">Save As</label>
+                      <input name="addresstype" id="type" type="text" class="form-control" [disabled]='inactiveAddress'
+                        placeholder="home or work" [(ngModel)]='userData.address[0].addresstype'>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <button type="submit" [disabled]='inactiveAddress' class="btn btn-primary m-3"><i class="fa fa-save"></i> Save Address</button>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="company">Address 2</label>
-                    <input name="address2" id="company" type="text" class="form-control" [disabled]='inactiveAddress'
-                      [(ngModel)]='userData.address[0].address2'>
-                  </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                  <div class="form-group">
-                    <label for="city">City</label>
-                    <input name="city" id="city" type="text" class="form-control" [disabled]='inactiveAddress' [(ngModel)]='userData.address[0].city'>
-                  </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                  <div class="form-group">
-                    <label for="zip">ZIP</label>
-                    <input name="zipcode" id="zip" type="text" class="form-control" [disabled]='inactiveAddress' [(ngModel)]='userData.address[0].zipcode'>
-                  </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                  <div class="form-group">
-                    <label for="state">State</label>
-                    <input name="state" id="state" class="form-control" [disabled]='inactiveAddress' [(ngModel)]='userData.address[0].state'>
-                  </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                  <div class="form-group">
-                    <label for="country">Country</label>
-                    <input name="country" id="country" class="form-control" [disabled]='inactiveAddress' [(ngModel)]='userData.address[0].country'>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="type">Save As</label>
-                    <input name="addresstype" id="type" type="text" class="form-control" [disabled]='inactiveAddress'
-                      placeholder="home or work" [(ngModel)]='userData.address[0].addresstype'>
-                  </div>
-                </div>
-                <div class="col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary m-3"><i class="fa fa-save"></i> Save Address</button>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
+            <!-- <ng-template #noAddress>
+              <h6 class="m-4">No Address Found!!</h6>
+            </ng-template>
+            <button class="btn btn-primary" (click)="onAddAddress()">Add Address</button> -->
+
+
 
             <!-- password change -->
             <!-- <h3>Change password</h3>

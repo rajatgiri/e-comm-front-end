@@ -88,10 +88,10 @@
                     <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown"
                             data-delay="200" class="dropdown-toggle nav-link">Categories<b class="caret"></b></a>
                         <ul class="dropdown-menu megamenu">
-                            <li class="nav-item"><a [routerLink]="['/product', 4]" class="nav-link">Mobile Phones</a></li>
-                            <li class="nav-item"><a [routerLink]="['/product', 5]" class="nav-link">Televisions</a></li>
+                            <li class="nav-item" *ngFor = 'let cat of newCat'><a (click)='onCategoryClick(cat.catgroupIdParent)' routerLink="/products" class="nav-link">{{cat.catgroupNameParent}}</a></li>
+                            <!-- <li class="nav-item"><a [routerLink]="['/product', 5]" class="nav-link">Televisions</a></li>
                             <li class="nav-item"><a [routerLink]="['/product', 6]" class="nav-link">Laptops</a></li>
-                            <li class="nav-item"><a [routerLink]="['/product', 3]" class="nav-link">Accessories</a></li>
+                            <li class="nav-item"><a [routerLink]="['/product', 3]" class="nav-link">Accessories</a></li> -->
                         </ul>
                     </li>
                 </ul>

@@ -11,12 +11,24 @@ import { map } from 'rxjs/operators';
 export class ProductsComponent implements OnInit {
   public products;
   newProduct = [];
+  public categories: any;
+  public newCat;
   id;
 
-  constructor(private prodSer : ProductService, private router : Router, private route : ActivatedRoute) { }
+  constructor(private prodSer : ProductService, private router : Router, private route : ActivatedRoute) {
+    
+    }
 
   ngOnInit() {
-    this.onClick(4);
+    // this.onClick(4);
+    this.onPageLoad();
+    
+    this.prodSer.dynamicCategory().subscribe(res =>{
+      console.log(res);
+      this.categories = res['data'];
+      this.newCat = this.categories[0];
+      console.log(this.newCat);
+    })
     // this.route.params.subscribe(params =>{
     //   this.id = params['id'];
     //   this.onClick(this.id);
@@ -34,7 +46,12 @@ export class ProductsComponent implements OnInit {
   // onSelect(product){
   //   this.router.navigate(['/products'], {queryParams : {catentryId : product.catentryId}});
   // }
-
+onPageLoad(){
+  this.prodSer.invokeOnClickFunction.subscribe(id =>{
+    this.onClick(id);
+    console.log(id);
+  })
+}
 
   
   onClick(id){

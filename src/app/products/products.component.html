@@ -122,11 +122,11 @@
           <h3 class="h4 card-title mb-0">Categories</h3>
         </div>
         <div class="card-body">
-          <ul class="list-unstyled flex-column category-menu">
-            <li><a (click)='onClick(4)' style="cursor:pointer" class="nav-link">Mobile Phones</a></li>
-            <li><a (click)='onClick(5)' style="cursor:pointer" class="nav-link">Televisions</a></li>
+          <ul class="list-unstyled flex-column category-menu m-0" *ngFor = 'let cat of newCat'>
+            <li><a (click)='onClick(cat.catgroupIdParent)' style="cursor:pointer" class="nav-link">{{cat.catgroupNameParent}}</a></li>
+            <!-- <li><a (click)='onClick(5)' style="cursor:pointer" class="nav-link">Televisions</a></li>
             <li><a (click)='onClick(6)' style="cursor:pointer" class="nav-link">Laptops</a></li>
-            <li><a (click)='onClick(3)' style="cursor:pointer" class="nav-link">Accessories</a></li>
+            <li><a (click)='onClick(3)' style="cursor:pointer" class="nav-link">Accessories</a></li> -->
           </ul>
         </div>
       </div>

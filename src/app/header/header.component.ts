@@ -15,11 +15,19 @@ export class HeaderComponent implements OnInit {
   values;
   searchText;
   productData;
+  public categories: any;
+  public newCat;
   constructor(private authSer: AuthService, private prodSer: ProductService) { }
 
 
   ngOnInit() {
     this.userName = localStorage.getItem('name');
+    this.prodSer.dynamicCategory().subscribe(res =>{
+      console.log(res);
+      this.categories = res['data'];
+      this.newCat = this.categories[0];
+      console.log(this.newCat);
+    })
     // console.log('name from header ' + this.userName);
     // this.authSer.userName.subscribe(res =>{   
     //   this.userName = res;
@@ -70,4 +78,8 @@ export class HeaderComponent implements OnInit {
       console.log(res);
     })
   }
+  onCategoryClick(id){
+    this.prodSer.invokeOnClickFunction.emit(id);
+  }
+  
 }

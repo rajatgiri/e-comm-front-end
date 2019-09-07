@@ -50,6 +50,7 @@
     padding: 20px;
     border: 1px solid #e6e6e6;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    height: 110px;
 }
 .blockquote-footer{
     color : #fff;

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -6,12 +6,15 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ProductService {
+  invokeOnClickFunction = new EventEmitter();
+
   public _newProductUrl = "";
   public _getProductsUrl = "/api/cat/getCatDetailsByGroup";
   public _allProductsUrl = "";
   public _getProductByIdUrl = "/api/cat/getCatDetailsById";
   public cartUrl = "/api/cart/saveCartDetails";
   public getCartDetailUrl = '/api/cart/getCartDetails';
+  public dynamicCatUrl = '/api/catgroup/getCatgroup';
 
   constructor(private http : HttpClient, private router : Router) { }
 
@@ -65,4 +68,10 @@ export class ProductService {
   searchResult(string){
     return this.http.post('/api/cat/searchResult', string);
   }
+
+
+  dynamicCategory(){
+    return this.http.get(this.dynamicCatUrl);
+  }
+ 
 }

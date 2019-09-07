@@ -17,3 +17,8 @@
   color: #4fbfa8;
   text-decoration: underline;
 }
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #fff;
+  background-color: #4fbfa8;
+  border-color: #4fbfa8;
+}
